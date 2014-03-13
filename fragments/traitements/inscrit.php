@@ -34,6 +34,10 @@ function creerUtilisateur($nom, $prenom, $pseudo, $mail, $mdp, $code_vérif){
     return requete("insert into inscrit(nom_inscrit,prenom_inscrit,nom_compte_inscrit,mdp_inscrit,adresse_mail_inscrit, code_verification,etat_inscrit,admin)VALUES('".addslashes($nom)."','".addslashes($prenom)."','".addslashes($pseudo)."','".addslashes($mdp)."','".addslashes($mail)."','".addslashes($code_vérif)."',1,0)");
 }
 
+function verifLogin($username){
+    return requete("select count(*) from inscrit where nom_compte_inscrit = '" . addslashes($username) . "'", true);
+}
+
 function envoyerMail($pseudo, $mail, $code_verification){
     
     ini_set("SMTP","smtp.live.com");           

@@ -36,7 +36,6 @@ require_once 'fragments/traitements/inscrit.php';
 <div id="anecdotes">
     <div id="text_anecdotes">
         <?php  echo $uneAnecdote[$random]['libelle_anecdote'] ?>
-        <?php var_dump($uneAnecdote[$random]['num_anecdote']); ?>
         <div id="split"></div>
         <div id="votes">
             <em> Postée par <?php echo $inscrit[0][1] ?> le <?php echo $uneAnecdote[$random]['date_creation_anecdote'] ?> : 

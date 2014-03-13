@@ -114,6 +114,33 @@ function downVote(numAnecdote){
 
 $(function(){
     $("#id").blur(function(){
-        $("#loginf").html("Erreur");
+        $.post(
+            'fragments/traitements/verif_login.php',
+            {
+                login: $("#id").val()
+            },
+            function(data){
+                if(data == "Failure"){
+                    $("#idf").html("Pseudo déjà utilisé").fadeIn("slow");
+                }else{
+                    $("#idf").html("Pseudo disponible").fadeIn("slow");
+                }
+            },
+            ''
+        );
     });
 });
+
+$(function(){
+    $("#password2").blur(function(){
+        if($("#password1").val() != $("#password2").val()){
+            $("#passwordf").html("Mots de passe différents").fadeIn("slow");
+        }else{
+            $("#passwordf").html("Mots de passe identiques").fadeIn("slow");
+        }
+    })
+})
+
+// $(function(){
+//     $("#connexion").submit()
+// })

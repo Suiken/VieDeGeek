@@ -14,14 +14,16 @@ $code_verif = rand(0000000000, 9999999999);
 if (strlen($mdp) >= 5 ){
     if ($mdp == $confirm_mdp){
         creerUtilisateur($nom,$prenom,$pseudo,$mail,$mdp, $code_verif);
+        echo "Success";
         // envoyerMail($pseudo, $mail, $code_verif);
 //        header('Location: ../../verification.php');
        header('Location: ../../login.php');
     } else {
+    	echo "Failure";
         header('Location: ../../login.php');
     }
 } else {
+	echo "Failure";
    header('Location: ../../login.php');
 }
-header('Location: ../../login.php');
 ?>

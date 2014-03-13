@@ -15,7 +15,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'VieDeGeek/fragments/shared/header.php');
 <div id="corp_login">
     <div id="login">
         <h3 align="center">Vérification de l'adresse email</h3>
-        <p> Un mail a été envoyer sur votre adresse email. Afin de completer
+        <p> Un mail a été envoyé sur votre adresse email. Afin de completer
         votre  inscription veiller inscrire si dessousle code joint dans le mail.</p>
         <form method="post" action="meilleurs.php">
             <table id="table" align="center">
