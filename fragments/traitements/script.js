@@ -123,7 +123,11 @@ $(function(){
                 if(data == "Failure"){
                     $("#idf").html("Pseudo déjà utilisé").fadeIn("slow");
                 }else{
-                    $("#idf").html("Pseudo disponible").fadeIn("slow");
+                    if($("#id").val() != ""){
+                        $("#idf").html("Pseudo disponible").fadeIn("slow");
+                    }else{
+                        $("#idf").html("Pseudo requis").fadeIn("slow");
+                    }
                 }
             },
             ''
@@ -134,13 +138,36 @@ $(function(){
 $(function(){
     $("#password2").blur(function(){
         if($("#password1").val() != $("#password2").val()){
-            $("#passwordf").html("Mots de passe différents").fadeIn("slow");
+            $("#password2f").html("Mots de passe différents").fadeIn("slow");
         }else{
-            $("#passwordf").html("Mots de passe identiques").fadeIn("slow");
+            if($("#password1").val() != "" && $("#password2") != ""){
+                $("#password2f").html("Mots de passe identiques").fadeIn("slow");
+            }else{
+                $("#password2f").html("").fadeIn("slow");
+            }
+        }
+    });
+});
+
+$(function(){
+    $("#password1").blur(function(){
+        if($("#password1").val() == ""){
+            $("#password1f").html("Mot de passe requis").fadeIn("slow");
+        }else{
+            $("#password1f").html("");
+        }
+    })
+});
+
+$(function(){
+    $("#mail").blur(function(){
+        if($("#mail").val() == ""){
+            $("#mailf").html("Mail requis").fadeIn("slow");
+        }else{
+            $("#mailf").html("");
         }
     })
 })
-
 // $(function(){
 //     $("#connexion").submit()
 // })
