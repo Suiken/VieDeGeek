@@ -10,15 +10,6 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
     #text_pub{
         display: none;
     }
-    #passwordf{
-        display: none;
-    }
-    #idf{
-        display: none;
-    }
-    #mailf{
-        display: none;
-    }
 </style>
 
 <div id="corp_soumission">

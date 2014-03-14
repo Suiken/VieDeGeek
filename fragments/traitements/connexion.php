@@ -7,8 +7,6 @@ $mdp = $_POST['mdp'];
 
 $user =  seLoguer($pseudo,$mdp);
 
-echo "avant";
-
 if ($user <> null){
     session_start();
     $_SESSION['id'] = $user[0]['num_inscrit'];
@@ -17,12 +15,25 @@ if ($user <> null){
     $_SESSION['prenom'] = $user[0]['prenom_inscrit'];
     $_SESSION['email'] = $user[0]['adresse_mail_inscrit'];
     $_SESSION['admin'] = $user[0]['admin'];
-    var_dump($user);
+?>
+
+	<script type="text/javascript">
+		alert("Vous êtes maintenant connecté");
+		window.location.replace("http://localhost/VieDeGeek/");
+	</script>
+
+<?php
+
+}else{
+
+?>
+
+	<script type="text/javascript">
+		alert("L'identifiant ou le mot de passe est incorrect");
+		window.location.replace("http://localhost/VieDeGeek/");
+	</script>
+<?php
+
 }
-
-header('Location: ../../index.php');
-exit();
-
-
 
 ?>
