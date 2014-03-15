@@ -20,7 +20,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
 <div id="corp_soumission">
     <div id="text_soumission">
         <h3 align="center">Soumettre une anecdote</h3>
-        <form method="post" action="/VieDeGeek/fragments/traitements/trait_sumision.php">        
+        <form id="soumission" method="post" action="/VieDeGeek/fragments/traitements/trait_sumision.php">        
             <p id ="soumission"align="center" padding-right="10px">
                 <ul>
                     <li>Rappel du concept : Une anecdote qui commence par "Aujourd'hui" et qui se termine par "VieDeGeek".</li>
@@ -35,7 +35,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
                     <br />
                     Il vous reste <span id="carac_reste_textarea_1"></span> caractères.
                     <script type="text/javascript">
-                            maxlength_textarea('anecdote','carac_reste_textarea_1',300);
+                            // maxlength_textarea('anecdote','carac_reste_textarea_1',300);
                     </script>
                     </td>
                 </tr>         
