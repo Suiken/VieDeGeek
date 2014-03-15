@@ -37,7 +37,7 @@ require_once 'fragments/traitements/inscrit.php';
         <?php  echo $uneAnecdote[$random]['libelle_anecdote'] ?>
         <div id="split"></div>
         <div id="votes">
-            <em> Postée par <?php echo $inscrit[0][1] ?> le <?php echo $uneAnecdote[$random]['date_creation_anecdote'] ?> : 
+            <em> Postée par <a href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0][1] ?>"> <?php echo $inscrit[0][1] ?> </a> le <?php echo $uneAnecdote[$random]['date_creation_anecdote'] ?> : 
                 <?php if(isset($_SESSION['login'])){ ?>
                 <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onclick="upVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
                 <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onclick="downVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
