@@ -7,7 +7,7 @@ function seLoguer($username, $mdp){
 }
 
 function showUsers(){
-    return requete("select * from inscrit");
+    return requete("select * from inscrit", true);
 }
 
 function infoUser($num_inscrit){
@@ -23,7 +23,7 @@ function recupererCodeVerification($num_inscrit){
 }
 
 function supprimerUtilisateur($num_inscrit){
-    return requete("delete inscrit where num_inscrit = ".addslashes($num_inscrit),true);
+    return requete("delete from inscrit where num_inscrit = ".addslashes($num_inscrit));
 }
 
 function modifierUtilisateur($num_inscrit, $nom, $prenom, $mail){

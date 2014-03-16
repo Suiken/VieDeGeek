@@ -29,6 +29,7 @@
                     } else if ($_SESSION['admin'] == true) {
                         ?>
                         <li><a href="validation.php">Validation</a></li>
+                        <li><a href="backoffice.php">Backoffice</a></li>
                         <?php
                     }
                 }
