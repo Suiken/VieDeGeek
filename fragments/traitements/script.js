@@ -215,16 +215,25 @@ $(function(){
 });
 
 $(function(){
-    $("#anecdote").keydown(function(){
-        $("#carac_reste_textarea_1").html(300 - $("#anecdote").val().length);
+    $("#anecdote").bind('input propertychange', function(){
+        var result = 300 - $("#anecdote").val().length;
+        if(result > 0){
+            $("#carac_reste_textarea_1").html("Il vous reste " + result + " caractères");
+        }else{
+            $("#carac_reste_textarea_1").html("Vous avez dépassé de " + (result - (result * 2)) + " caractères");
+        }
     });
 });
 
 $(function(){
     $("#soumission").submit(function(event){
         if((300 - $("#anecdote").val().length) < 0){
-            alert("Votre anecdote contient plus de 300 caractères");
+            alert("Votre anecdote ne doit pas contenir plus de 300 caractères");
             event.preventDefault();
         }
     });
 });
+
+function soumissionLabelAtLoad(){
+    $
+}
