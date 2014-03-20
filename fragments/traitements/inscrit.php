@@ -18,6 +18,10 @@ function activerInscrit($num_inscrit){
     return requete("update inscrit set etat_inscrit = 1 where num_inscrit = ".addslashes($num_inscrit),"update");
 }
 
+function afficherTop3(){
+    return requete("select nom_inscrit, SUM(nb_like)-SUM(nb_dislike) as Score from anecdote, inscrit where anecdote.num_inscrit = inscrit.num_inscrit order by Score desc LIMIT 3");
+}
+
 function recupererCodeVerification($num_inscrit){
     return requete("select code_verification from inscrit where num_inscrit = ".addslashes($num_inscrit),true);
 }
