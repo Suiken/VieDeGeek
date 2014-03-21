@@ -33,7 +33,7 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
                     <td>
                     <textarea id="anecdote" name="anecdote" cols="50" rows="10" value="Aujourd'hui,"> Aujourd'hui, </textarea>
                     <br />
-                    <span id="carac_reste_textarea_1">Il vous reste 300 caractères</span>
+                    <span id="carac_reste_textarea_1">Il vous reste 286 caractères</span>
                     </td>
                 </tr>         
             </table>
