@@ -2,6 +2,12 @@
 
 require_once 'db.php';
 
+/* La fonction requete prends deux paramètre:
+        $requete : La requete en SQL
+        $select : true si c'est un select, false dans le cas contraire
+*/
+
+
 function seLoguer($username, $mdp){
     return requete("select * from inscrit where etat_inscrit = 1 and nom_compte_inscrit = '".addslashes($username)."' and mdp_inscrit = '".addslashes($mdp)."'",true);
 }
@@ -15,11 +21,15 @@ function infoUser($num_inscrit){
 }
 
 function activerInscrit($num_inscrit){
-    return requete("update inscrit set etat_inscrit = 1 where num_inscrit = ".addslashes($num_inscrit),"update");
+    return requete("update inscrit set etat_inscrit = 1 where num_inscrit = ".addslashes($num_inscrit));
 }
 
-function afficherTop3(){
-    return requete("select nom_inscrit, SUM(nb_like)-SUM(nb_dislike) as Score from anecdote, inscrit where anecdote.num_inscrit = inscrit.num_inscrit order by Score desc LIMIT 3");
+function afficherTop3Aime(){
+    return requete("select inscrit.nom_compte_inscrit, sum(anecdote.nb_like)-sum(anecdote.nb_dislike) as score from anecdote, inscrit where anecdote.num_inscrit = inscrit.num_inscrit group by inscrit.nom_compte_inscrit order by score desc limit 3", true);
+}
+
+function afficherTop3Poste(){
+    return requete("select nom_compte_inscrit, count(a.num_anecdote) as score from inscrit i join anecdote a on i.num_inscrit = a.num_inscrit group by nom_compte_inscrit order by score desc limit 3", true);
 }
 
 function recupererCodeVerification($num_inscrit){

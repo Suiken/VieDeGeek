@@ -168,4 +168,46 @@ $(function(){
 $(function(){
     $("body").hide();
     $("body").fadeIn(500);
-})
+});
+
+$(function(){
+
+    var i = 0;
+
+    function topCommentaireBoucle(){
+        setTimeout(function(){
+            $("#top3").hide();
+            $("#top3").fadeIn("slow")
+            if(i == 1){
+                $.post(
+                    "fragments/traitements/top_commentaires.php",
+                    function(data){
+                        $("#topTitre").html("Top aimés")
+                        $("#premier").html(data[0].nom_compte_inscrit + " : " + data[0].score + " points");
+                        $("#deuxieme").html(data[1].nom_compte_inscrit + " : " + data[1].score + " points");
+                        $("#troisieme").html(data[2].nom_compte_inscrit + " : " + data[2].score + " points");
+                    },
+                    "json"
+                );
+                i = 0;
+                topCommentaireBoucle();
+            }else{
+                $.post(
+                    "fragments/traitements/top_posteurs.php",
+                    function(data){
+                        $("#topTitre").html("Top posteurs")
+                        $("#premier").html(data[0].nom_compte_inscrit + " : " + data[0].score + " points");
+                        $("#deuxieme").html(data[1].nom_compte_inscrit + " : " + data[1].score + " points");
+                        $("#troisieme").html(data[2].nom_compte_inscrit + " : " + data[2].score + " points");
+                    },
+                    "json"
+                );
+                i = 1;
+                topCommentaireBoucle();
+            }
+        }, 5000);
+    }
+
+    topCommentaireBoucle();
+
+});
