@@ -56,12 +56,12 @@ $(function(){
             function(data){
                 $("#idf").hide();
                 if(data == "Failure"){
-                    $("#idf").html("Pseudo déjà utilisé").fadeIn("slow");
+                    $("#idf").html("Pseudo déjà utilisé").css("color", "red").fadeIn("slow");
                 }else{
                     if($("#id").val() != ""){
-                        $("#idf").html("Pseudo disponible").fadeIn("slow");
+                        $("#idf").html("OK").css("color", "green").fadeIn("slow");
                     }else{
-                        $("#idf").html("Pseudo requis").fadeIn("slow");
+                        $("#idf").html("Pseudo requis").css("color", "red").fadeIn("slow");
                     }
                 }
             },
@@ -74,12 +74,12 @@ $(function(){
     $("#password2").blur(function(){
         $("#password2f").hide();
         if($("#password1").val() != $("#password2").val()){
-            $("#password2f").html("Mots de passe différents").fadeIn("slow");
+            $("#password2f").html("Mots de passe différents").css("color", "red").fadeIn("slow");
         }else{
             if($("#password1").val() != "" && $("#password2") != ""){
-                $("#password2f").html("Mots de passe identiques").fadeIn("slow");
+                $("#password2f").html("OK").css("color", "green").fadeIn("slow");
             }else{
-                $("#password2f").html("").fadeIn("slow");
+                $("#password2f").html("");
             }
         }
     });
@@ -89,9 +89,9 @@ $(function(){
     $("#password1").blur(function(){
         $("#password1f").hide();
         if($("#password1").val() == ""){
-            $("#password1f").html("Mot de passe requis").fadeIn("slow");
+            $("#password1f").html("Mot de passe requis").css("color", "red").fadeIn("slow");
         }else{
-            $("#password1f").show().fadeOut(1000);
+            $("#password1f").html("OK").css("color", "green").fadeIn("slow");
         }
     });
 });
@@ -100,9 +100,9 @@ $(function(){
     $("#mail").blur(function(){
         $("#mailf").hide();
         if($("#mail").val() == ""){
-            $("#mailf").html("Mail requis").fadeIn("slow");
+            $("#mailf").html("Mail requis").css("color", "red").fadeIn("slow");
         }else{
-            $("#mailf").show().fadeOut(1000);
+            $("#mailf").html("OK").css("color", "green").fadeIn("slow");
         }
     });
 });
