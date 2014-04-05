@@ -35,6 +35,9 @@ foreach ($anecdotes as $uneAnecdote) {
                         / <?php } ?><label id="<?php echo $uneAnecdote['num_anecdote']; ?>"><?php echo $uneAnecdote['nb_like'] - $uneAnecdote['nb_dislike'] ?></label>
                     <label id="e<?php echo $uneAnecdote['num_anecdote']; ?>"></label>
                 </em>
+                <p>
+                    Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote['libelle_categorie'] ?>"> <?php echo $uneAnecdote['libelle_categorie'] ?> </a>
+                </p>
             </div>
         </div>
     </div>
@@ -56,7 +59,7 @@ foreach ($anecdotes as $uneAnecdote) {
             }
             if ($suivant <= $nbAnecdotes[0][0]) {
                 ?>
-                <td><a id="valider" href="inscrit_anecdotes.php?login_inscrit=<?php echo $login_inscrit?>nbAnecdotes=<?php echo $suivant ?>">Page suivante</a></td>
+                <td><a id="valider" href="inscrit_anecdotes.php?login_inscrit=<?php echo $login_inscrit?>&nbAnecdotes=<?php echo $suivant ?>">Page suivante</a></td>
                 <?php
             }
             ?>

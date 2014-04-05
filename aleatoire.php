@@ -45,7 +45,7 @@ $inscrit = infoUser($uneAnecdote[$random][6]);
                 <label id="e<?php echo $uneAnecdote[$random]['num_anecdote']; ?>"></label>
             </em>
             <p>
-                Categorie : <?php echo $uneAnecdote[$random]['libelle_categorie'] ?>
+                Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote[$random]['libelle_categorie'] ?>"> <?php echo $uneAnecdote[$random]['libelle_categorie'] ?> </a>
             </p>
             <div align ="center"><em><a id="valider" href="aleatoire.php">Suivante</a></em></div>
         </div>
