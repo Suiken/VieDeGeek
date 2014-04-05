@@ -15,7 +15,7 @@ foreach ($anecdotes as $uneAnecdote) {
     $inscrit = infoUser($uneAnecdote['num_inscrit']);
     ?>
     <div id="anecdotes">
-        <div id="text_anecdotes">
+        <a href="komento.php?id=<?php echo $uneAnecdote['num_anecdote']; ?>"><div id="text_anecdotes">
             <?php echo $uneAnecdote['libelle_anecdote'] ?>
             <div id="split"></div>
             <div id="votes">
@@ -27,7 +27,7 @@ foreach ($anecdotes as $uneAnecdote) {
                     <label id="e<?php echo $uneAnecdote['num_anecdote']; ?>"></label>
                 </em>
             </div>
-        </div>
+            </div></a>
     </div>
     <?php
 }

@@ -26,6 +26,27 @@ function upVote(numAnecdote){
     });
 }
 
+function upvoteCom(numCommentaire){
+    $(function(){
+        $.get(
+            'fragments/traitements/upvoteCom.php',
+            {
+                id: numCommentaire
+            },
+            function(data){
+                $("#e"+numCommentaire.toString()).hide();
+                if(data == "Success"){
+                    $("#"+numAnecdote.toString()).html(parseInt($("#"+numAnecdote.toString()).html())+1);
+                    $("#e"+numAnecdote.toString()).html("Merci d'avoir voté").fadeIn("slow");
+                }else{
+                    $("#e"+numAnecdote.toString()).html("Vous avez déjà voté").fadeIn("slow");
+                }
+            },
+            ''
+        );
+    });
+}
+
 function downVote(numAnecdote){
     $(function(){
         $.get(
@@ -39,6 +60,26 @@ function downVote(numAnecdote){
                     $("#e"+numAnecdote.toString()).html("Merci d'avoir voté").fadeIn("slow");
                 }else{
                     $("#e"+numAnecdote.toString()).html("Vous avez déjà voté").fadeIn("slow");
+                }
+            },
+            ''
+        );
+    });
+}
+
+function downvoteCom(numCommentaire){
+    $(function(){
+        $.get(
+            'fragments/traitements/downvoteCom.php',
+            {
+                id: numCommentaire
+            },
+            function(data){
+                $("#e"+numCommentaire.toString()).hide();
+                if(data == "Success"){
+                    $("#e"+numCommentaire.toString()).html("Merci d'avoir voté").fadeIn("slow");
+                }else{
+                    $("#e"+numCommentaire.toString()).html("Vous avez déjà voté").fadeIn("slow");
                 }
             },
             ''

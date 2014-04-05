@@ -33,6 +33,9 @@ function countAnecdotesValideesAleatoires(){
 function anecdoteUpvote($numAnecdote){
 	return requete("update anecdote set nb_like = nb_like + 1 where num_anecdote = " . addslashes($numAnecdote));
 }
+function commentaireUpvote($numCommentaire){
+	return requete("update commentaire set nb_like = nb_like + 1 where num_commentaire = " . addslashes($numCommentaire));
+}
 
 function anecdoteAModerer(){
 	return requete("select * from anecdote where etat_anecdote = 0 order by date_creation_anecdote asc", true);
@@ -53,18 +56,41 @@ function anecdoteScore($numAnecdote){
 function ajouterAnecdote($libelleAnecdote, $numInscrit){
 	return requete ('Insert into anecdote(libelle_anecdote, etat_anecdote, nb_like, nb_dislike, date_creation_anecdote, num_inscrit) values("' . addslashes($libelleAnecdote) . '", "0", 0, 0, now(), ' . addslashes($numInscrit) . ')');
 }
+function ajouterCommentaire($numAnecdote,$commentaire,$numInscrit){
+	return requete('Insert into commentaire(num_anecdote, commentaire, nb_like, nb_dislike, date_creation_commentaire, num_inscrit) values("' . addslashes($numAnecdote) . '","' . addslashes($commentaire) . '", 0, 0, now(), ' . addslashes($numInscrit) . ')');
+}
+
 function anecdoteDownvote($numAnecdote){
 	return requete("update anecdote set nb_dislike = nb_dislike + 1 where num_anecdote = " . addslashes($numAnecdote));
 }
+function commentaireDownvote($numCommentaire){
+	return requete("update commentaire set nb_dislike = nb_dislike + 1 where num_commentaire = " . addslashes($numCommentaire));
+}
+
 function aVoter($numAnecdote,$numInscrit){
-        return requete('Insert into lien_inscrit_anecdote(no_anecdote,no_inscrit) values("'.addslashes($numAnecdote).'","'.addslashes($numInscrit).'")');
+    return requete('Insert into lien_inscrit_anecdote(no_anecdote,no_inscrit) values("'.addslashes($numAnecdote).'","'.addslashes($numInscrit).'")');
 }
+function aVoterCom($numCommentaire,$numInscrit){
+	return requete('Insert into lien_inscrit_commentaire(no_commentaire,no_inscrit) values("'.addslashes($numCommentaire).'","'.addslashes($numInscrit).'")');
+}
+
 function getVote($numAnecdote,$numInscrit){
-        return requete("select * from lien_inscrit_anecdote where no_anecdote = " . addslashes($numAnecdote) . " and no_inscrit = " . addslashes($numInscrit), true);
+    return requete("select * from lien_inscrit_anecdote where no_anecdote = " . addslashes($numAnecdote) . " and no_inscrit = " . addslashes($numInscrit), true);
 }
+function getVoteCom($numCommentaire,$numInscrit){
+	return requete("select * from lien_inscrit_commentaire where no_commentaire = " . addslashes($numCommentaire) . " and no_inscrit = " . addslashes($numInscrit), true);
+}
+
 function getUserAnecdote($login_inscrit,$nbAnecdote){
-        return requete("select a.num_anecdote, a.libelle_anecdote, a.nb_like, a.nb_dislike, a.num_inscrit, a.date_creation_anecdote from anecdote a, inscrit i where a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);
-        
+    return requete("select a.num_anecdote, a.libelle_anecdote, a.nb_like, a.nb_dislike, a.num_inscrit, a.date_creation_anecdote from anecdote a, inscrit i where a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);    
+}
+
+function getCommentaires($numAnecdote){
+	return requete("select * from commentaires where num_anecdote = " . addslashes($numAnecdote), true);
+}
+
+function getAnecdote($numAnecdote){
+	return requete("select * from anecdote where num_anecdote = " . addslashes($numAnecdote), true);
 }
 
 ?>
