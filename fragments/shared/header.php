@@ -12,17 +12,16 @@
 
 <body>   
     
-<div id="page">
     <div id="content-header"> 
         <ul id="main-menu">
 
-            <li><a href="index.php">Accueil</a></li>
+            <li><a href="index.php" id="urlIndex">Accueil</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="meilleurs.php">Les meilleures</a></li>
+            <li><a href="meilleurs.php" id="urlMeilleurs">Les meilleures</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="controversees.php">Les plus controvers&eacute;es</a></li>
+            <li><a href="controversees.php" id="urlControversees">Les plus controvers&eacute;es</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="aleatoire.php">Al&eacute;atoire</a></li>
+            <li><a href="aleatoire.php" id="urlAleatoire">Al&eacute;atoire</a></li>
             <?php
             if (isset($_SESSION['admin'])) {
                 if ($_SESSION['admin'] == false) {
@@ -51,7 +50,7 @@
         </ul>
     </div>
     
-           
+<div id="page">           
     <div id="content"> 
 
 <div id="pub">
@@ -76,34 +75,34 @@
             </div>
         <?php } ?>   
         <div id="top3">
-                <h3 align="center">Top des posteurs</h3>
+                <h3 id="topTitre" align="center">Top aimés</h3>
                     <?php      
                     require_once 'fragments/traitements/inscrit.php';
-                    $top3 = afficherTop3();
+                    $top3 = afficherTop3Aime();
                     ?>
                     <table id="table" align="center">
                         <tr>
                             <td> <img height="50%" width="50%" src="res/img/or.png"/> </td>
-                            <td><?php 
-                                    echo $top3[0]['nom_inscrit'];  
+                            <td id="premier"><?php 
+                                    echo $top3[0]['nom_compte_inscrit'];  
                                     echo " : "; 
-                                    echo $top3[0]['Score']." points"; 
+                                    echo $top3[0]['score']." points"; 
                             ?></td>
                         </tr>
                         <tr>
                             <td> <img height="50%" width="50%" src="res/img/argent.png"/> </td>
-                            <td><?php 
-                                    echo $top3[1]['nom_inscrit'];  
+                            <td id="deuxieme"><?php 
+                                    echo $top3[1]['nom_compte_inscrit'];  
                                     echo " : "; 
-                                    echo $top3[1]['Score']." points"; 
+                                    echo $top3[1]['score']." points"; 
                             ?></td>
                         </tr>
                         <tr>
                                 <td> <img height="50%" width="50%" src="res/img/bronze.png"/> </td>
-                            <td><?php 
-                                    echo $top3[2]['nom_inscrit'];  
+                            <td id="troisieme"><?php 
+                                    echo $top3[2]['nom_compte_inscrit'];  
                                     echo " : "; 
-                                    echo $top3[2]['Score']." points"; 
+                                    echo $top3[2]['score']." points"; 
                             ?></td>
                             </tr>
                     </table>

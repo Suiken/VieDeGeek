@@ -1,6 +1,7 @@
 <?php 
 $page_title = "Vie De Geek - Soumettre";
 include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/VieDeGeek/fragments/traitements/anecdote.php');
 ?>
 
 <style type="text/css">
@@ -37,6 +38,23 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
                     </td>
                 </tr>         
             </table>
+            
+            <br>
+            Catégorie : 
+            <select name="categorie">
+                <?php
+                $les_categories = listerCategorie();
+                var_dump($les_categories);
+                foreach ($les_categories as $une_categorie) {
+                    ?>
+                
+                    <option value="<?php echo $une_categorie['no_categorie'] ?>"> <?php echo $une_categorie['libelle_categorie'] ?> </option>
+                    
+                    <?php
+                }
+                ?>
+            </select>
+            
             <p align="center"><input type="submit" name="submit_anecdote" value="Valider" /><input type="button" onclick="reset()" value="Reset" /></p> 
         </form>
     </div>

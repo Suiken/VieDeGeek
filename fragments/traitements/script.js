@@ -97,12 +97,12 @@ $(function(){
             function(data){
                 $("#idf").hide();
                 if(data == "Failure"){
-                    $("#idf").html("Pseudo déjà utilisé").fadeIn("slow");
+                    $("#idf").html("Pseudo déjà utilisé").css("color", "red").fadeIn("slow");
                 }else{
                     if($("#id").val() != ""){
-                        $("#idf").html("Pseudo disponible").fadeIn("slow");
+                        $("#idf").html("OK").css("color", "green").fadeIn("slow");
                     }else{
-                        $("#idf").html("Pseudo requis").fadeIn("slow");
+                        $("#idf").html("Pseudo requis").css("color", "red").fadeIn("slow");
                     }
                 }
             },
@@ -115,12 +115,12 @@ $(function(){
     $("#password2").blur(function(){
         $("#password2f").hide();
         if($("#password1").val() != $("#password2").val()){
-            $("#password2f").html("Mots de passe différents").fadeIn("slow");
+            $("#password2f").html("Mots de passe différents").css("color", "red").fadeIn("slow");
         }else{
             if($("#password1").val() != "" && $("#password2") != ""){
-                $("#password2f").html("Mots de passe identiques").fadeIn("slow");
+                $("#password2f").html("OK").css("color", "green").fadeIn("slow");
             }else{
-                $("#password2f").html("").fadeIn("slow");
+                $("#password2f").html("");
             }
         }
     });
@@ -130,9 +130,9 @@ $(function(){
     $("#password1").blur(function(){
         $("#password1f").hide();
         if($("#password1").val() == ""){
-            $("#password1f").html("Mot de passe requis").fadeIn("slow");
+            $("#password1f").html("Mot de passe requis").css("color", "red").fadeIn("slow");
         }else{
-            $("#password1f").show().fadeOut(1000);
+            $("#password1f").html("OK").css("color", "green").fadeIn("slow");
         }
     });
 });
@@ -141,9 +141,9 @@ $(function(){
     $("#mail").blur(function(){
         $("#mailf").hide();
         if($("#mail").val() == ""){
-            $("#mailf").html("Mail requis").fadeIn("slow");
+            $("#mailf").html("Mail requis").css("color", "red").fadeIn("slow");
         }else{
-            $("#mailf").show().fadeOut(1000);
+            $("#mailf").html("OK").css("color", "green").fadeIn("slow");
         }
     });
 });
@@ -209,4 +209,60 @@ $(function(){
 $(function(){
     $("body").hide();
     $("body").fadeIn(500);
-})
+});
+
+$(function(){
+
+    var i = 0;
+
+    function topCommentaireBoucle(){
+        setTimeout(function(){
+            $("#top3").hide();
+            $("#top3").fadeIn("slow")
+            if(i == 1){
+                $.post(
+                    "fragments/traitements/top_commentaires.php",
+                    function(data){
+                        $("#topTitre").html("Top aimés")
+                        $("#premier").html(data[0].nom_compte_inscrit + " : " + data[0].score + " points");
+                        $("#deuxieme").html(data[1].nom_compte_inscrit + " : " + data[1].score + " points");
+                        $("#troisieme").html(data[2].nom_compte_inscrit + " : " + data[2].score + " points");
+                    },
+                    "json"
+                );
+                i = 0;
+                topCommentaireBoucle();
+            }else{
+                $.post(
+                    "fragments/traitements/top_posteurs.php",
+                    function(data){
+                        $("#topTitre").html("Top posteurs")
+                        $("#premier").html(data[0].nom_compte_inscrit + " : " + data[0].score + " points");
+                        $("#deuxieme").html(data[1].nom_compte_inscrit + " : " + data[1].score + " points");
+                        $("#troisieme").html(data[2].nom_compte_inscrit + " : " + data[2].score + " points");
+                    },
+                    "json"
+                );
+                i = 1;
+                topCommentaireBoucle();
+            }
+        }, 5000);
+    }
+
+    topCommentaireBoucle();
+
+});
+
+$(function(){
+    var url = document.location.href;
+    if(url == "http://localhost/VieDeGeek/index.php"){
+        $("#urlIndex").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/meilleurs.php"){
+        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/controversees.php"){
+        $("#urlControversees").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/aleatoire.php"){
+        $("#urlAleatoire").css("background-color", "white").css("color", "black");
+    }
+
+});
