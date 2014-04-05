@@ -7,11 +7,11 @@ function nbAnecdotes(){
 }
 
 function anecdotesValidees($nbAnecdote){
-	return requete("select * from anecdote where etat_anecdote = 1 order by date_creation_anecdote desc LIMIT 12 OFFSET " . $nbAnecdote, true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 1 order by date_creation_anecdote desc LIMIT 12 OFFSET " . $nbAnecdote, true);
 }
 
 function anecdotesAValidees(){
-	return requete("select * from anecdote where etat_anecdote = 0 order by date_creation_anecdote desc LIMIT 12", true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 0 order by date_creation_anecdote desc LIMIT 12", true);
 }
 
 function anecdotesValideesControversees($nbAnecdote){
@@ -50,9 +50,10 @@ function anecdoteScore($numAnecdote){
 	return requete("select nb_dislike, nb_like from anecdote where num_anecdote = " . addslashes($numAnecdote), true);
 }
 
-function ajouterAnecdote($libelleAnecdote, $numInscrit){
-	return requete ('Insert into anecdote(libelle_anecdote, etat_anecdote, nb_like, nb_dislike, date_creation_anecdote, num_inscrit) values("' . addslashes($libelleAnecdote) . '", "0", 0, 0, now(), ' . addslashes($numInscrit) . ')');
+function ajouterAnecdote($libelleAnecdote, $numInscrit, $numCategorie){
+	return requete ('Insert into anecdote(libelle_anecdote, etat_anecdote, nb_like, nb_dislike, date_creation_anecdote, num_inscrit, ma_categorie) values("' . addslashes($libelleAnecdote) . '", "0", 0, 0, now(), '.addslashes($numInscrit).','.addslashes($numCategorie).')');
 }
+
 function anecdoteDownvote($numAnecdote){
 	return requete("update anecdote set nb_dislike = nb_dislike + 1 where num_anecdote = " . addslashes($numAnecdote));
 }
