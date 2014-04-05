@@ -15,19 +15,19 @@ function anecdotesAValidees(){
 }
 
 function anecdotesValideesControversees($nbAnecdote){
-	return requete("select * from anecdote where etat_anecdote = 1 order by nb_like - nb_dislike asc LIMIT 12 OFFSET " . $nbAnecdote, true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 1 order by nb_like - nb_dislike asc LIMIT 12 OFFSET " . $nbAnecdote, true);
 }
 
 function anecdotesValideesMeilleures($nbAnecdote){
-	return requete("select * from anecdote where etat_anecdote = 1 order by nb_like - nb_dislike desc LIMIT 12 OFFSET " . $nbAnecdote, true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 1 order by nb_like - nb_dislike desc LIMIT 12 OFFSET " . $nbAnecdote, true);
 }
 
 function anecdotesValideesAleatoires(){
-	return requete("select * from anecdote where etat_anecdote = 1", true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 1", true);
 }
 
 function countAnecdotesValideesAleatoires(){
-	return requete("select count(*) from anecdote where etat_anecdote = 1", true);
+	return requete("select count(*) from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 1", true);
 }
 
 function anecdoteUpvote($numAnecdote){
@@ -35,7 +35,7 @@ function anecdoteUpvote($numAnecdote){
 }
 
 function anecdoteAModerer(){
-	return requete("select * from anecdote where etat_anecdote = 0 order by date_creation_anecdote asc", true);
+	return requete("select * from anecdote,categorie where categorie.no_categorie = anecdote.ma_categorie and etat_anecdote = 0 order by date_creation_anecdote asc", true);
 }
 
 function validerAnecdote($numAnecdote){
@@ -71,6 +71,9 @@ function creerCategorie($libelle_categorie){
 }
 function listerCategorie(){
         return requete("select* from categorie",true);
+}
+function getCategorieAnecdote($nom_categorie,$nbAnecdote){
+        return requete("select* from anecdote a, categorie c where a.ma_categorie = c.no_categorie and etat_anecdote = 1 and c.libelle_categorie = '".addslashes($nom_categorie)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);               
 }
 
 ?>

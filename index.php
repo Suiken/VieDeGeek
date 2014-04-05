@@ -26,6 +26,9 @@ foreach ($anecdotes as $uneAnecdote) {
                         / <?php } ?><label id="<?php echo $uneAnecdote['num_anecdote']; ?>"><?php echo $uneAnecdote['nb_like'] - $uneAnecdote['nb_dislike'] ?></label>
                     <label id="e<?php echo $uneAnecdote['num_anecdote']; ?>"></label>
                 </em>
+                <p>
+                    Categorie : <?php echo $uneAnecdote['libelle_categorie'] ?>
+                </p>
             </div>
         </div>
     </div>
