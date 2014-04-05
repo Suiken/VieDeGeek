@@ -211,3 +211,17 @@ $(function(){
     topCommentaireBoucle();
 
 });
+
+$(function(){
+    var url = document.location.href;
+    if(url == "http://localhost/VieDeGeek/index.php"){
+        $("#urlIndex").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/meilleurs.php"){
+        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/controversees.php"){
+        $("#urlControversees").css("background-color", "white").css("color", "black");
+    }else if(url == "http://localhost/VieDeGeek/aleatoire.php"){
+        $("#urlAleatoire").css("background-color", "white").css("color", "black");
+    }
+
+});

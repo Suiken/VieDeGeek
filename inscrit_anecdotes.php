@@ -14,7 +14,11 @@ if (!isset($_GET['nbAnecdotes'])) {
 $login_inscrit = $_GET['login_inscrit'];
 
 $anecdotes = getUserAnecdote($login_inscrit, $_GET['nbAnecdotes']);
+?>
 
+<h1>Les anecdotes de l'utilisateur : <?php echo $login_inscrit; ?></h1>
+
+<?php
 foreach ($anecdotes as $uneAnecdote) {
     $inscrit = infoUser($uneAnecdote['num_inscrit']);
     ?>

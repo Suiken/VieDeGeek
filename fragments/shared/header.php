@@ -16,13 +16,13 @@
     <div id="content-header"> 
         <ul id="main-menu">
 
-            <li><a href="index.php">Accueil</a></li>
+            <li><a href="index.php" id="urlIndex">Accueil</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="meilleurs.php">Les meilleures</a></li>
+            <li><a href="meilleurs.php" id="urlMeilleurs">Les meilleures</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="controversees.php">Les plus controvers&eacute;es</a></li>
+            <li><a href="controversees.php" id="urlControversees">Les plus controvers&eacute;es</a></li>
             <li><div id="split_menu"></div></li>
-            <li><a href="aleatoire.php">Al&eacute;atoire</a></li>
+            <li><a href="aleatoire.php" id="urlAleatoire">Al&eacute;atoire</a></li>
             <?php
             if (isset($_SESSION['admin'])) {
                 if ($_SESSION['admin'] == false) {
