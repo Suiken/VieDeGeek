@@ -63,8 +63,13 @@ function getVote($numAnecdote,$numInscrit){
         return requete("select * from lien_inscrit_anecdote where no_anecdote = " . addslashes($numAnecdote) . " and no_inscrit = " . addslashes($numInscrit), true);
 }
 function getUserAnecdote($login_inscrit,$nbAnecdote){
-        return requete("select a.num_anecdote, a.libelle_anecdote, a.nb_like, a.nb_dislike, a.num_inscrit, a.date_creation_anecdote from anecdote a, inscrit i where a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);
-        
+        return requete("select a.num_anecdote, a.libelle_anecdote, a.nb_like, a.nb_dislike, a.num_inscrit, a.date_creation_anecdote from anecdote a, inscrit i where a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);       
+}
+function creerCategorie($libelle_categorie){
+        return requete('Insert into categorie(libelle_categorie) values ("'.addslashes($libelle_categorie).'")');
+}
+function listerCategorie(){
+        return requete("select* from categorie",true);
 }
 
 ?>
