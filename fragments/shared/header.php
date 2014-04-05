@@ -12,7 +12,6 @@
 
 <body>   
     
-<div id="page">
     <div id="content-header"> 
         <ul id="main-menu">
 
@@ -51,7 +50,7 @@
         </ul>
     </div>
     
-           
+<div id="page">           
     <div id="content"> 
 
 <div id="pub">
