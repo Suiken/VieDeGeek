@@ -255,14 +255,39 @@ $(function(){
 
 $(function(){
     var url = document.location.href;
-    if(url == "http://localhost/VieDeGeek/index.php"){
-        $("#urlIndex").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/meilleurs.php"){
-        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/controversees.php"){
-        $("#urlControversees").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/aleatoire.php"){
-        $("#urlAleatoire").css("background-color", "white").css("color", "black");
+    switch(url){
+        case "http://localhost/VieDeGeek/index.php":
+            $("#urlIndex").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/meilleurs.php":
+            $("#urlMeilleurs").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/controversees.php":
+            $("#urlControversees").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/aleatoire.php":
+            $("#urlAleatoire").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/sumision.php":
+            $("#urlSumision").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/sumision.php":
+            $("#urlProfile").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/profile.php":
+            $("#urlProfile").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/validation.php":
+            $("#urlValidation").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/backoffice.php":
+            $("#urlBackoffice").css("background-color", "white").css("color", "black");
+            break;
     }
-
 });
+
+// $(function(){
+//     $.post(
+//         ""
+//     )
+// });
