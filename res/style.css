@@ -17,6 +17,16 @@ a {text-decoration: none;
    color:whitesmoke;
 }
 
+a.numPage{
+    color:#2a757b;
+}
+
+#split_page{
+    background-color: #2a757b;
+    height: 15px;   
+    width: 2px;
+}
+
 #main-menu {
     margin:0;
     padding:0;
