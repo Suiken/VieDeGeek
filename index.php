@@ -9,11 +9,11 @@ require_once "fragments/traitements/fonctions.php";
 
 <?php
 if (!isset($_GET['numPage']) || $_GET['numPage'] < 0) {
-    $_GET['numPage'] = 0;
+    $_GET['numPage'] = 1;
 }
 if($_GET['numPage'] > 0){
     $anecdotes = anecdotesValidees(($_GET['numPage']-1)*12);
-}else if($_GET['numPage'] == 0){
+}else if($_GET['numPage'] == 1){
     $anecdotes = anecdotesValidees(0);
 }
 foreach ($anecdotes as $uneAnecdote) {

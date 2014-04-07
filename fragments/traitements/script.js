@@ -255,16 +255,16 @@ $(function(){
 
 $(function(){
     var url = document.location.href;
+    if(url.indexOf("index.php") == 27){
+        $("#urlIndex").css("background-color", "white").css("color", "black");
+    }
+    if(url.indexOf("meilleurs.php") == 27){
+        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
+    }
+    if(url.indexOf("controversees.php") == 27){
+        $("#urlControversees").css("background-color", "white").css("color", "black");
+    }
     switch(url){
-        case "http://localhost/VieDeGeek/index.php":
-            $("#urlIndex").css("background-color", "white").css("color", "black");
-            break;
-        case "http://localhost/VieDeGeek/meilleurs.php":
-            $("#urlMeilleurs").css("background-color", "white").css("color", "black");
-            break;
-        case "http://localhost/VieDeGeek/controversees.php":
-            $("#urlControversees").css("background-color", "white").css("color", "black");
-            break;
         case "http://localhost/VieDeGeek/aleatoire.php":
             $("#urlAleatoire").css("background-color", "white").css("color", "black");
             break;
@@ -285,9 +285,3 @@ $(function(){
             break;
     }
 });
-
-// $(function(){
-//     $.post(
-//         ""
-//     )
-// });
