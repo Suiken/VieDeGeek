@@ -8,7 +8,7 @@ require_once "fragments/traitements/fonctions.php";
 ?>
 
 <?php
-if (!isset($_GET['numPage']) || $_GET['numPage'] < 0) {
+if (!isset($_GET['numPage']) || $_GET['numPage'] < 0 || $_GET['numPage'] == "" || $_GET['numPage'] > nbPagesAnecdotes()) {
     $_GET['numPage'] = 1;
 }
 if($_GET['numPage'] > 0){
@@ -50,16 +50,22 @@ foreach ($anecdotes as $uneAnecdote) {
             if($_GET['numPage']-1 > 0){
             ?>
             <td><a class="numPage" href="index.php?numPage=<?php echo $_GET['numPage']-1 ?>">Page pr&eacute;c&eacute;dente</a></td>
+            <td><div id="split_page"></div></td>
             <?php
             }
             for($i=0; $i<$nbPages; $i++){
+                if($i > 0){
             ?>
                 <td><div id="split_page"></div></td>
+                <?php
+                }
+                ?>
                 <td><a class="numPage" href="index.php?numPage=<?php echo $i+1 ?>" <?php if(($i+1) == $_GET['numPage']){ ?>style="color: white; background-color: #2a757b;"<?php } ?>><?php echo $i+1; ?></a></td>
             <?php
             }
             if($_GET['numPage']+1 <= $nbPages){
             ?>
+                <td><div id="split_page"></div></td>
                 <td><a class="numPage" href="index.php?numPage=<?php echo $_GET['numPage']+1; ?>">Page suivante</a></td>
             <?php
             }
