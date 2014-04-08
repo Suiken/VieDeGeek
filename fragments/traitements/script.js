@@ -129,8 +129,8 @@ $(function(){
 $(function(){
     $("#password1").blur(function(){
         $("#password1f").hide();
-        if($("#password1").val() == ""){
-            $("#password1f").html("Mot de passe requis").css("color", "red").fadeIn("slow");
+        if($("#password1").val().length <= 4){
+            $("#password1f").html("Le mot de passe doit contenir au moins 5 caractères").css("color", "red").fadeIn("slow");
         }else{
             $("#password1f").html("OK").css("color", "green").fadeIn("slow");
         }
@@ -165,7 +165,7 @@ $(function(){
                         if($("#password1").val() != $("#password2").val()){
                             alert("Les deux mots de passe ne sont pas identiques");
                         }else{
-                            if($("#password1").val().length <= 5){
+                            if($("#password1").val().length <= 4){
                                 alert("Le mot de passe doit contenir au moins 5 caractères");
                             }else{
                                 if($("#mail").val() == ""){
