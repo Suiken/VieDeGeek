@@ -165,13 +165,13 @@ $(function(){
                         if($("#password1").val() != $("#password2").val()){
                             alert("Les deux mots de passe ne sont pas identiques");
                         }else{
-                            if($("#password1").length <= 5){
+                            if($("#password1").val().length <= 5){
                                 alert("Le mot de passe doit contenir au moins 5 caractères");
                             }else{
                                 if($("#mail").val() == ""){
                                     alert("Une adresse email est requis");
                                 }else{
-                                    // $("#connexion").off("submit");
+                                    $("#connexion").off("submit");
                                     $("#connexion").submit();
                                 }
                             }
