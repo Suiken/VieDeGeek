@@ -9,7 +9,7 @@ require_once 'db.php';
 
 
 function seLoguer($username, $mdp){
-    return requete("select * from inscrit where etat_inscrit = 1 and nom_compte_inscrit = '".addslashes($username)."' and mdp_inscrit = '".addslashes($mdp)."'",true);
+    return requete("select * from inscrit where etat_inscrit = 1 and nom_compte_inscrit = '".addslashes($username)."' and mdp_inscrit = md5('".addslashes($mdp)."')",true);
 }
 
 function showUsers(){
@@ -45,7 +45,7 @@ function modifierUtilisateur($num_inscrit, $nom, $prenom, $mail){
 }
 
 function creerUtilisateur($nom, $prenom, $pseudo, $mail, $mdp, $code_vérif){
-    return requete("insert into inscrit(nom_inscrit,prenom_inscrit,nom_compte_inscrit,mdp_inscrit,adresse_mail_inscrit, code_verification,etat_inscrit,admin)VALUES('".addslashes($nom)."','".addslashes($prenom)."','".addslashes($pseudo)."','".addslashes($mdp)."','".addslashes($mail)."','".addslashes($code_vérif)."',1,0)");
+    return requete("insert into inscrit(nom_inscrit,prenom_inscrit,nom_compte_inscrit,mdp_inscrit,adresse_mail_inscrit, code_verification,etat_inscrit,admin)VALUES('".addslashes($nom)."','".addslashes($prenom)."','".addslashes($pseudo)."',md5('".addslashes($mdp)."'),'".addslashes($mail)."','".addslashes($code_vérif)."',1,0)");
 }
 
 function verifLogin($username){
