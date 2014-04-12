@@ -16,6 +16,7 @@ if($_GET['numPage'] > 0){
 }else if($_GET['numPage'] == 1){
     $anecdotes = anecdotesValidees(0);
 }
+if(count($anecdotes) > 0){
 foreach ($anecdotes as $uneAnecdote) {
     $inscrit = infoUser($uneAnecdote['num_inscrit']);
 ?>
@@ -39,6 +40,7 @@ foreach ($anecdotes as $uneAnecdote) {
     </div>
     <?php
 }
+
 ?>
 
 <div id="bas_de_page">
@@ -76,6 +78,9 @@ foreach ($anecdotes as $uneAnecdote) {
 </div>
 
 <?php
+}else{
+    echo "Pas d'anecdotes disponibles";
+}
 include ($_SERVER['DOCUMENT_ROOT'] . '/VieDeGeek/fragments/shared/footer.php');
 ?>
 
