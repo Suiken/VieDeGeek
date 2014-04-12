@@ -26,7 +26,7 @@ require_once 'fragments/traitements/inscrit.php';
         <?php  echo $uneAnecdote['libelle_anecdote'] ?>
         <div id="split"></div>
         <div id="votes">
-            <em> Postée par <?php echo $inscrit[0]['nom_inscrit'] ?> le <?php echo $uneAnecdote['date_creation_anecdote'] ?>
+            Postée par  <em style="color: white; font-weight: bold; text-decoration: underline;"> <?php echo $inscrit[0]['nom_inscrit'] ?></em> le <?php echo $uneAnecdote['date_creation_anecdote'] ?>
             <div align ="center">
                 <em>
                     <a id="valider" href="fragments/shared/validation_vdg.php?var=true&var2=<?php echo $uneAnecdote[0]; ?> ">Valider</a> /
