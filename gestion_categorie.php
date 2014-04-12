@@ -36,8 +36,9 @@ require_once 'fragments/traitements/inscrit.php';
             ?>
         </table>
         <form method="post" action="fragments/traitements/bo_ajouter_categorie.php">
-            Créer une catégorie : <input type="text" name="new_categorie">
+            <p align="center"> Créer une catégorie : <input type="text" name="new_categorie">
             <input type="submit" value="Ajouter">
+            </p>
         </form>
     </div>
 </div>
