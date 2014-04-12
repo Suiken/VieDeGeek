@@ -83,16 +83,15 @@ function getVoteCom($numCommentaire,$numInscrit){
 }
 
 function getUserAnecdote($login_inscrit,$nbAnecdote){
-    return requete("select a.num_anecdote, a.libelle_anecdote, a.nb_like, a.nb_dislike, a.num_inscrit, a.date_creation_anecdote from anecdote a, inscrit i where a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);    
+        return requete("select* from anecdote a, inscrit i, categorie c  where a.ma_categorie = c.no_categorie and a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true); 
 }
 
 function getCommentaires($numAnecdote){
-	return requete("select * from commentaires where num_anecdote = " . addslashes($numAnecdote), true);
+	return requete("select * from commentaire where num_anecdote = " . addslashes($numAnecdote), true);
 }
 
 function getAnecdote($numAnecdote){
 	return requete("select * from anecdote where num_anecdote = " . addslashes($numAnecdote), true);
-        return requete("select* from anecdote a, inscrit i, categorie c  where a.ma_categorie = c.no_categorie and a.num_inscrit = i.num_inscrit and etat_anecdote = 1 and nom_compte_inscrit = '".addslashes($login_inscrit)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);       
 }
 function creerCategorie($libelle_categorie){
         return requete('Insert into categorie(libelle_categorie) values ("'.addslashes($libelle_categorie).'")');
