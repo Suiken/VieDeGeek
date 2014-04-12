@@ -100,6 +100,9 @@ function creerCategorie($libelle_categorie){
 function listerCategorie(){
         return requete("select* from categorie",true);
 }
+function supprimerCategorie($libelle_categorie){
+        return requete('Delete from Categorie where libelle_categorie = "'.addslashes($libelle_categorie).'"');
+}
 function getCategorieAnecdote($nom_categorie,$nbAnecdote){
         return requete("select* from anecdote a, categorie c where a.ma_categorie = c.no_categorie and etat_anecdote = 1 and c.libelle_categorie = '".addslashes($nom_categorie)."' order by a.date_creation_anecdote desc LIMIT 12 OFFSET ".$nbAnecdote,true);               
 }
