@@ -24,7 +24,7 @@ foreach ($anecdotes as $uneAnecdote) {
     ?>
 
     <div id="anecdotes">
-        <div id="text_anecdotes">
+        <a href="komento.php?id=<?php echo $uneAnecdote['num_anecdote']; ?>"><div id="text_anecdotes">
             <?php echo $uneAnecdote['libelle_anecdote'] ?>
             <div id="split"></div>
             <div id="votes">
@@ -39,7 +39,7 @@ foreach ($anecdotes as $uneAnecdote) {
                     Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote['libelle_categorie'] ?>"> <?php echo $uneAnecdote['libelle_categorie'] ?> </a>
                 </p>
             </div>
-        </div>
+        </div></a>
     </div>
     <?php
 }
