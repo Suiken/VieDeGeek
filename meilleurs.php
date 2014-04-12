@@ -20,20 +20,11 @@ foreach ($anecdotes as $uneAnecdote) {
     $inscrit = infoUser($uneAnecdote['num_inscrit']);
     ?>
     <div id="anecdotes">
-        <a href="komento.php?id=<?php echo $uneAnecdote['num_anecdote']; ?>"><div id="text_anecdotes">
+        <div id="text_anecdotes">
             <?php echo $uneAnecdote['libelle_anecdote'] ?>
             <div id="split"></div>
-<<<<<<< HEAD
-            <div id="votes">
-                <em> Postée par <a href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0]['nom_inscrit'] ?>"> <?php echo $inscrit[0]['nom_inscrit'] ?> </a> le <?php echo reformeDate($uneAnecdote['date_creation_anecdote']); ?> : 
-=======
                <div id="votes">
-<<<<<<< HEAD
                 <em> Postée par <a  style="color: white; font-weight: bold; text-decoration: underline;" href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0]['nom_inscrit'] ?>"> <?php echo $inscrit[0]['nom_inscrit'] ?> </a> le <?php echo reformeDate($uneAnecdote['date_creation_anecdote']); ?>
-=======
-                <em> Postée par <a  style="color: red;" href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0]['nom_inscrit'] ?>"> <?php echo $inscrit[0]['nom_inscrit'] ?> </a> le <?php echo reformeDate($uneAnecdote['date_creation_anecdote']); ?>
->>>>>>> cc0d8fe51e8621854d1f6f871a3e9c21f695340a
->>>>>>> ada358b3f8418e63ab05b911936578f9b07387ee
                     <?php if (isset($_SESSION['login'])) { ?>
                         : <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor = 'pointer';" onclick="upVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
                         <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor = 'pointer';" onclick="downVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
@@ -42,7 +33,7 @@ foreach ($anecdotes as $uneAnecdote) {
                     / Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote['libelle_categorie'] ?>"> <?php echo $uneAnecdote['libelle_categorie'] ?> </a>
                 </em>
             </div>
-        </div></a>
+        </div>
     </div>
     <?php
 }
