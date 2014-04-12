@@ -35,12 +35,12 @@ foreach ($commentaires as $commentaire) {
 	$auteur = infoUser($commentaire['num_inscrit']);
 ?>
 	<div>
-		<?php echo $auteur[0]['nom_inscrit'] . "-" . $commentaire['date'] ?><br/>
+		<?php echo $auteur[0]['nom_inscrit'] . "-" . $commentaire['date_creation_commentaire'] ?><br/>
 		<img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor='pointer';" onclick="upvoteCom(<?php echo $commentaire['num_commentaire']; ?>)"/>
         <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor='pointer';" onclick="downvoteCom(<?php echo $commentaire['num_commentaire']; ?>)"/>
 		<?php echo $commentaire['nb_like'] - $commentaire['nb_dislike'] . " points" ?><br/>
 		<?php echo $commentaire['commentaire'] ?>
-        <label id="e<?php echo $commentaire[num_commentaire]; ?>"></label>
+        <label id="e<?php echo $commentaire['num_commentaire']; ?>"></label>
 	</div>
 <?php
 }
