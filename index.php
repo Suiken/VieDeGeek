@@ -20,22 +20,32 @@ foreach ($anecdotes as $uneAnecdote) {
     $inscrit = infoUser($uneAnecdote['num_inscrit']);
 ?>
     <div id="anecdotes">
-        <a href="komento.php?id=<?php echo $uneAnecdote['num_anecdote']; ?>"><div id="text_anecdotes">
+        <a href="komento.php?id=<?php echo $uneAnecdote['num_anecdote']; ?>">
+            <div id="text_anecdotes">
             <?php echo $uneAnecdote['libelle_anecdote'] ?>
+<<<<<<< HEAD
             <div id="split"></div>
             <div id="votes">
                 <em> Postée par <a href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0]['nom_inscrit'] ?>"> <?php echo $inscrit[0]['nom_inscrit'] ?> </a> le <?php echo reformeDate($uneAnecdote['date_creation_anecdote']); ?> : 
+=======
+        </a>
+            <div id="split"></div>                          
+                <div id="votes">
+                <em> Postée par <a  style="color: red;" href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0]['nom_inscrit'] ?>"> <?php echo $inscrit[0]['nom_inscrit'] ?> </a> le <?php echo reformeDate($uneAnecdote['date_creation_anecdote']); ?>
+>>>>>>> cc0d8fe51e8621854d1f6f871a3e9c21f695340a
                     <?php if (isset($_SESSION['login'])) { ?>
-                        <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor='pointer';" onclick="upVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
-                        <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor='pointer';" onclick="downVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
-                        / <?php } ?><label id="<?php echo $uneAnecdote['num_anecdote']; ?>"><?php echo $uneAnecdote['nb_like'] - $uneAnecdote['nb_dislike'] ?></label>
+                        : <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor = 'pointer';" onclick="upVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
+                        <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor = 'pointer';" onclick="downVote(<?php echo $uneAnecdote['num_anecdote']; ?>)"/>
+                        / Points : <?php } ?><label id="<?php echo $uneAnecdote['num_anecdote']; ?>"><?php echo $uneAnecdote['nb_like'] - $uneAnecdote['nb_dislike'] ?></label>
                     <label id="e<?php echo $uneAnecdote['num_anecdote']; ?>"></label>
+                    / Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote['libelle_categorie'] ?>"> <?php echo $uneAnecdote['libelle_categorie'] ?> </a>
                 </em>
-                <p>
-                    Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote['libelle_categorie'] ?>"> <?php echo $uneAnecdote['libelle_categorie'] ?> </a>
-                </p>
             </div>
+<<<<<<< HEAD
         </div></a>
+=======
+            </div>
+>>>>>>> cc0d8fe51e8621854d1f6f871a3e9c21f695340a
     </div>
     <?php
 }

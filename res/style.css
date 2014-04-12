@@ -289,7 +289,7 @@ a.numPage{
     border: 1px solid #599587;
     width: 40%;
     margin:auto;
-    background-color: #ffffff;
+    background-color: #2a757b ;
 /*    -moz-border-radius:20px;
     border-radius: 20px;
     -khtml-border-radius: 20px;
@@ -304,8 +304,9 @@ a.numPage{
     margin:auto;
     margin-top: 50px;
     overflow: auto;
+    color : whitesmoke;
 }
-
+   
 #verification{
     border: 1px solid #599587;
     width: 40%;
@@ -353,7 +354,7 @@ a.numPage{
     margin-right: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: whitesmoke;
+    background-color: #2a757b;
 /*     -moz-border-radius:20px; */
 /*     border-radius: 20px; */
 /*     -khtml-border-radius: 20px; */
@@ -363,6 +364,7 @@ a.numPage{
 
 #text_validation{
     position : static;
+    color : whitesmoke;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 5px;
