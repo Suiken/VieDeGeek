@@ -8,7 +8,6 @@ function requete($requete, $select = false){
 	$monPdoVdg = null;
 	$pdo = new PDO($server.';'.$bdd, $user, $mdp);
 	$pdo->query("SET CHARACTER SET utf8");
-
 	if($select == true){
 		$result = $pdo->query($requete);
 		$result = $result->fetchAll();

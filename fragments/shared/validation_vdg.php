@@ -17,5 +17,4 @@ if ($etat == 'true' ){
             header('Location: ../../validation.php');                                                   
         }
     }
-
 ?>

@@ -6,6 +6,6 @@ require_once 'inscrit.php';
 
 
 ajouterCommentaire($_POST['numAnecdote'], $_POST['commentaire'], $_SESSION['id']);
-header("Location: ../../komento.php?id=".$_POST['numAnecdote']);
 
+header("Location: ../../komento.php?id=".$_POST['numAnecdote']);
 ?>
