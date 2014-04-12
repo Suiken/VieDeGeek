@@ -37,19 +37,28 @@ $inscrit = infoUser($uneAnecdote[$random][6]);
     <div id="text_anecdotes">
         <?php echo $uneAnecdote[$random]['libelle_anecdote'] ?>
         <div id="split"></div>
-        <div id="votes">
-            <em> Postée par <a href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0][1] ?>"> <?php echo $inscrit[0][1] ?> </a> le <?php echo reformeDate($uneAnecdote[$random]['date_creation_anecdote']) ?> : 
-                <?php if (isset($_SESSION['login'])) { ?>
-                    <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor = 'pointer';" onclick="upVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
-                    <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor = 'pointer';" onclick="downVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
-                    / <?php } ?><label id="<?php echo $uneAnecdote[$random]['num_anecdote']; ?>"><?php echo $uneAnecdote[$random]['nb_like'] - $uneAnecdote[$random]['nb_dislike'] ?></label>
-                <label id="e<?php echo $uneAnecdote[$random]['num_anecdote']; ?>"></label>
-            </em>
-            <p>
-                Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote[$random]['libelle_categorie'] ?>"> <?php echo $uneAnecdote[$random]['libelle_categorie'] ?> </a>
-            </p>
+        
+            <table>
+                <tr>
+                    <td>   
+                        Postée par <a style="color: red;" href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0][1] ?>"> <?php echo $inscrit[0][1] ?> </a> le <?php echo reformeDate($uneAnecdote[$random]['date_creation_anecdote']) ?> : 
+                        <?php if (isset($_SESSION['login'])) { ?>
+                            <img height="1%"width="1.5%" src="res/img/fleche_haut.png" alt="up" title="Up vote" onmouseover="this.style.cursor = 'pointer';" onclick="upVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
+                            <img height="1%"width="1.5%" src="res/img/fleche_bas.png" alt="down" title="Down vote" onmouseover="this.style.cursor = 'pointer';" onclick="downVote(<?php echo $uneAnecdote[$random]['num_anecdote']; ?>)"/>
+                        <?php } ?>
+                        </td>
+                    <td> / </td>
+                    <td> <p>Points :</p>   
+                    </td>
+                    <td>
+                        <label id="<?php echo $uneAnecdote[$random]['num_anecdote']; ?>"><?php echo $uneAnecdote[$random]['nb_like'] - $uneAnecdote[$random]['nb_dislike'] ?></label>
+                        <label id="e<?php echo $uneAnecdote[$random]['num_anecdote']; ?>"></label>
+                    </td>
+                    <td> / </td>
+                    <td>  Categorie : <a href="categorie_anecdotes.php?libelle_categorie=<?php echo $uneAnecdote[$random]['libelle_categorie'] ?>"> <?php echo $uneAnecdote[$random]['libelle_categorie'] ?> </a> </td>
+                </tr>
+            </table>
             <div align ="center"><em><a id="valider" href="aleatoire.php">Suivante</a></em></div>
-        </div>
     </div>
 </div>
 
