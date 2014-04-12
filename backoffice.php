@@ -14,15 +14,14 @@ require_once 'fragments/traitements/inscrit.php';
     }
 </style>
 
-<div id="conditions">
-    <div id="text_conditions">
-			<table>
+<div id="corp_validation">
+    <div id="text_validation">
+			<table align="center">
 			    <tr>
 			        <th>ID</th>
 			        <th>Nom</th>
 			        <th>Prénom</th>
 			        <th>Login</th>
-			        <th>MDP</th>
 			        <th>Email</th>
 			        <th>Etat</th>
 			        <th>Action</th>
@@ -36,10 +35,9 @@ require_once 'fragments/traitements/inscrit.php';
 				<td><?=$inscrit['nom_inscrit'] ?></td>
 				<td><?=$inscrit['prenom_inscrit'] ?></td>
 				<td><?=$inscrit['nom_compte_inscrit'] ?></td>
-				<td><?=$inscrit['mdp_inscrit'] ?></td>
 				<td><?=$inscrit['adresse_mail_inscrit'] ?></td>
 				<td><?=$inscrit['etat_inscrit'] ?></td>
-				<td><a href="fragments/traitements/bo_suppr_inscrit.php?id=<?php echo $inscrit['num_inscrit'] ?>">Supprimer</a></td>
+				<td><a style="color: red;" href="fragments/traitements/bo_suppr_inscrit.php?id=<?php echo $inscrit['num_inscrit'] ?>">Supprimer</a></td>
 			    </tr>
 			    
 			<?php

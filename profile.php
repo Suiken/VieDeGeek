@@ -12,8 +12,8 @@ include ($_SERVER['DOCUMENT_ROOT'].'/VieDeGeek/fragments/shared/header.php');
     }
 </style>
 
-<div id="text_profile">
-    <div id="profile">
+<div id="corp_validation">
+    <div id="text_validation">
         <h3 align="center">Mes informations personnelles</h3>
         <form method="post" action="fragments/traitements/trait_modif.php">
             <table id="table" align="center">
