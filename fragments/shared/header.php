@@ -27,16 +27,16 @@
                 if ($_SESSION['admin'] == false) {
                     ?>
                     <li><div id="split_menu"></div></li>
-                    <li><a href="sumision.php">Soumettre</a></li>
+                    <li><a href="sumision.php" id="urlSumision">Soumettre</a></li>
                     <li><div id="split_menu"></div></li>
-                    <li><a href="profile.php">Mon compte</a></li>
+                    <li><a href="profile.php" id="urlProfile">Mon compte</a></li>
                     <?php
                 } else if ($_SESSION['admin'] == true) {
                     ?>
                     <li><div id="split_menu"></div></li>
-                    <li><a href="validation.php">Validation</a></li>
+                    <li><a href="validation.php" id="urlValidation">Validation</a></li>
                     <li><div id="split_menu"></div></li>
-                    <li><a href="backoffice.php">Backoffice</a></li>
+                    <li><a href="backoffice.php" id="urlBackoffice">Backoffice</a></li>
                     <?php
                 }
             }

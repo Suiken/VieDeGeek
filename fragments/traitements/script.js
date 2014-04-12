@@ -129,8 +129,8 @@ $(function(){
 $(function(){
     $("#password1").blur(function(){
         $("#password1f").hide();
-        if($("#password1").val() == ""){
-            $("#password1f").html("Mot de passe requis").css("color", "red").fadeIn("slow");
+        if($("#password1").val().length <= 4){
+            $("#password1f").html("Le mot de passe doit contenir au moins 5 caractères").css("color", "red").fadeIn("slow");
         }else{
             $("#password1f").html("OK").css("color", "green").fadeIn("slow");
         }
@@ -165,13 +165,13 @@ $(function(){
                         if($("#password1").val() != $("#password2").val()){
                             alert("Les deux mots de passe ne sont pas identiques");
                         }else{
-                            if($("#password1").length <= 5){
+                            if($("#password1").val().length <= 4){
                                 alert("Le mot de passe doit contenir au moins 5 caractères");
                             }else{
                                 if($("#mail").val() == ""){
                                     alert("Une adresse email est requis");
                                 }else{
-                                    // $("#connexion").off("submit");
+                                    $("#connexion").off("submit");
                                     $("#connexion").submit();
                                 }
                             }
@@ -255,14 +255,33 @@ $(function(){
 
 $(function(){
     var url = document.location.href;
-    if(url == "http://localhost/VieDeGeek/index.php"){
+    if(url.indexOf("index.php") == 27){
         $("#urlIndex").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/meilleurs.php"){
-        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/controversees.php"){
-        $("#urlControversees").css("background-color", "white").css("color", "black");
-    }else if(url == "http://localhost/VieDeGeek/aleatoire.php"){
-        $("#urlAleatoire").css("background-color", "white").css("color", "black");
     }
-
+    if(url.indexOf("meilleurs.php") == 27){
+        $("#urlMeilleurs").css("background-color", "white").css("color", "black");
+    }
+    if(url.indexOf("controversees.php") == 27){
+        $("#urlControversees").css("background-color", "white").css("color", "black");
+    }
+    switch(url){
+        case "http://localhost/VieDeGeek/aleatoire.php":
+            $("#urlAleatoire").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/sumision.php":
+            $("#urlSumision").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/sumision.php":
+            $("#urlProfile").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/profile.php":
+            $("#urlProfile").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/validation.php":
+            $("#urlValidation").css("background-color", "white").css("color", "black");
+            break;
+        case "http://localhost/VieDeGeek/backoffice.php":
+            $("#urlBackoffice").css("background-color", "white").css("color", "black");
+            break;
+    }
 });
