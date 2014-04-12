@@ -34,8 +34,10 @@ $inscrit = infoUser($uneAnecdote[$random][6]);
 ?>
 
 <div id="anecdotes">
+    <a href="komento.php?id=<?php echo $random; ?>">
     <div id="text_anecdotes">
         <?php echo $uneAnecdote[$random]['libelle_anecdote'] ?>
+    </a>
         <div id="split"></div>
         <div id="votes">
             <em> Postée par <a  style="color: white; font-weight: bold; text-decoration: underline;"  href="inscrit_anecdotes.php?login_inscrit=<?php echo $inscrit[0][1] ?>"> <?php echo $inscrit[0][1] ?> </a> le <?php echo reformeDate($uneAnecdote[$random]['date_creation_anecdote']) ?>  
