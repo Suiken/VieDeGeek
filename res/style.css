@@ -116,12 +116,50 @@ a.numPage{
     margin-bottom: 10px;
 }
 
+#commentaire{
+    /*border: 2px solid #B40404;*/
+    /*border: 2px solid #084B8A;*/
+    width: 90%;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+/*    background-color: #61a293 ;*/
+/*    background-color: #006D80 ;*/
+    background-color: whitesmoke ;
+/*    -moz-border-radius:20px;
+    border-radius: 20px;
+    -khtml-border-radius: 20px;
+    -webkit-border-radius: 20px;*/
+/*     box-shadow: 5px 5px 5px #888888; */
+}
+
+#text_commentaire{
+    padding: 10px;
+    background-color: whitesmoke ;
+    border: 1px solid whitesmoke;
+    position : static;
+    color : #2a757b;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
 #split{
     border: 0px solid whitesmoke;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 140px;
     margin-right: 140px;
+}
+
+#split2{
+    border: 1px solid #2a757b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 #votes{
