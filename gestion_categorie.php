@@ -14,9 +14,10 @@ require_once 'fragments/traitements/inscrit.php';
     }
 </style>
 
-<div id="conditions">
-    <div id="text_conditions">
-        <table>
+
+<div id="corp_validation">
+    <div id="text_validation">
+        <table align="center">
             <tr>
                 <th>Nom</th>
                 <th>Action</th>
@@ -27,19 +28,22 @@ require_once 'fragments/traitements/inscrit.php';
                 ?>
                 <tr>
                     <td><?= $une_categorie['libelle_categorie'] ?></td>
-                    <td><a font="black" href="fragments/traitements/bo_suppr_categorie.php?libelle=<?php echo $une_categorie['libelle_categorie'] ?>">Supprimer</a></td>
-                </tr>  
+                    <td><a style="color: white; font-weight: bold; text-decoration: underline;" href="fragments/traitements/bo_suppr_categorie.php?libelle=<?php echo $une_categorie['libelle_categorie'] ?>">Supprimer</a></td>
+                </tr>
+
                 <?php
             }
             ?>
         </table>
-        <br>
-
         <form method="post" action="fragments/traitements/bo_ajouter_categorie.php">
             Créer une catégorie : <input type="text" name="new_categorie">
             <input type="submit" value="Ajouter">
         </form>
     </div>
+</div>
+
+
+</div>
 </div>
 
 <?php

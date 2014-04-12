@@ -37,6 +37,8 @@
                     <li><a href="validation.php" id="urlValidation">Validation</a></li>
                     <li><div id="split_menu"></div></li>
                     <li><a href="backoffice.php" id="urlBackoffice">Backoffice</a></li>
+                    <li><div id="split_menu"></div></li>
+                    <li><a href="gestion_categorie.php" id="urlBackoffice">Gestion des catégories</a></li>
                     <?php
                 }
             }
